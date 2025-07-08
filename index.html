@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp Unban Report</title>
+  <link rel="icon" href="https://i.postimg.cc/5NnNdtbz/IMG-20250626-181024-969.jpg" type="image/jpeg">
+  <style>
+    body, html {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: black;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.postimg.cc/j5WsWM4J/20250527-135248.jpg') center center / cover no-repeat;
+      opacity: 0.15;
+      z-index: -3;
+    }
+
+    .matrix-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .matrix-char {
+      color: orange;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      opacity: 0.07;
+      animation: fall 10s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid orange;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 400px;
+      margin: 4% auto;
+      box-shadow: 0 0 15px orange;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid orange;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: orange;
+      text-shadow: 0 0 5px orange;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid orange;
+    }
+
+    button {
+      background: orange;
+      border: none;
+      color: black;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .output {
+      margin-top: 1rem;
+      background: rgba(255, 140, 0, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: left;
+      border: 1px dashed orange;
+    }
+
+    .links {
+      margin-top: 1.5rem;
+    }
+
+    .links a {
+      display: block;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      color: orange;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: orange;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      border-top: 1px solid orange;
+      border-radius: 0 0 12px 12px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .box {
+        margin-top: 10%;
+        width: 90%;
+        padding: 1.2rem;
+      }
+
+      .profile-img {
+        width: 70px;
+        height: 70px;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      input, button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Matrix Hacking Effect -->
+  <div class="matrix-effect" aria-hidden="true">
+    <div class="matrix-char">
+      0101011001010100100101010110010101010101001010010100101010100101<br>
+      1010101010010100100101010101010101010101010101010101010101010101<br>
+      0101010010010101001010101010010010010101010101010010010101010101<br>
+      0101010010010101010101010101010101010100101001010101010010101001
+    </div>
+  </div>
+
+  <!-- Main Box -->
+  <div class="box">
+    <img class="profile-img" src="https://i.postimg.cc/5NnNdtbz/IMG-20250626-181024-969.jpg" alt="Profile">
+    <h2>ALIASIM Unban WhatsApp Number Reporter</h2>
+    <p>Enter your banned number (with country code):</p>
+    <input type="text" id="number" placeholder="+921234567890" />
+    <button onclick="generateReport()">Generate & Email Report</button>
+
+    <div class="output" id="output" style="display:none;"></div>
+
+    <div class="links">
+     
+      <a href="https://t.me/ALIASIM16" target="_blank">📢 Join Telegram</a>
+      <a href="https://whatsapp.com/channel/0029VawAFpk7oQhaVcrxgG06" target="_blank">📱 WhatsApp Channel</a>
+    </div>
+
+    <div class="footer">
+      © 2025 ALIASIM, ALL RIGHTS RESERVED
+    </div>
+  </div>
+
+  <script>
+    function generateReport() {
+      const number = document.getElementById("number").value.trim();
+      const output = document.getElementById("output");
+
+      if (!number.startsWith('+') || number.length < 10) {
+        alert("Please enter a valid number with country code (e.g., +911234567890)");
+        return;
+      }
+
+      const subject = encodeURIComponent("WhatsApp Number Ban Appeal");
+      const body = encodeURIComponent(
+        `Hello WhatsApp Support,\n\n` +
+        `My WhatsApp number ${number} was banned mistakenly.\n` +
+        `I believe I did not violate any terms of service.\n` +
+        `Kindly review and unban my number.\n\nThank you.`
+      );
+
+      output.style.display = "block";
+      output.textContent = decodeURIComponent(body);
+
+      window.location.href = `mailto:support@support.whatsapp.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+  </html>
+  
